@@ -1,5 +1,6 @@
 import React from 'react';
 import { Check } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const FutureVision: React.FC = () => {
   return (
@@ -8,7 +9,12 @@ export const FutureVision: React.FC = () => {
       
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
-          <div>
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight">
               Como Será Seu Negócio Quando Você Revende Produtos que Funcionam
             </h2>
@@ -30,46 +36,48 @@ export const FutureVision: React.FC = () => {
                   "Parceria transparente",
                   "Atendimento consultivo"
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-center gap-3">
+                  <motion.li 
+                    key={idx} 
+                    className="flex items-center gap-3"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                  >
                     <div className="bg-secondary rounded-full p-1">
                       <Check size={14} className="text-white" />
                     </div>
                     <span>{item}</span>
-                  </li>
+                  </motion.li>
                 ))}
               </ul>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="bg-white text-gray-800 rounded-2xl p-8 shadow-2xl">
+          <motion.div 
+            className="bg-white text-gray-800 rounded-2xl p-8 shadow-2xl"
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
             <h3 className="text-2xl font-bold text-primary mb-6">O Que Muda na Prática</h3>
             <div className="space-y-6">
-              <div>
-                <h4 className="font-bold text-lg text-primary">Seus Dias Ficam Mais Leves</h4>
-                <p className="text-gray-600 text-sm">Menos reclamação, menos troca de produto com defeito, menos desgaste. Você vende tranquilo porque o produto entrega.</p>
-              </div>
-              <div className="w-full h-px bg-gray-200"></div>
-              <div>
-                <h4 className="font-bold text-lg text-primary">Suas Vendas Se Multiplicam</h4>
-                <p className="text-gray-600 text-sm">Cliente satisfeito indica. Quem comprou fogão volta pro forno. Quem testou pequeno expande o pedido.</p>
-              </div>
-              <div className="w-full h-px bg-gray-200"></div>
-              <div>
-                <h4 className="font-bold text-lg text-primary">Sua Reputação Cresce</h4>
-                <p className="text-gray-600 text-sm">Você vira referência local em equipamento profissional de qualidade.</p>
-              </div>
-              <div className="w-full h-px bg-gray-200"></div>
-               <div>
-                <h4 className="font-bold text-lg text-primary">Suas Margens Melhoram</h4>
-                <p className="text-gray-600 text-sm">Produto bom justifica preço justo. Você trabalha com margens saudáveis entregando valor real.</p>
-              </div>
-               <div className="w-full h-px bg-gray-200"></div>
-               <div>
-                <h4 className="font-bold text-lg text-primary">Você Tem um Parceiro</h4>
-                <p className="text-gray-600 text-sm">Atendimento 07:00 às 18:00. Entregas no prazo. Suporte que funciona.</p>
-              </div>
+              {[
+                { title: "Seus Dias Ficam Mais Leves", text: "Menos reclamação, menos troca de produto com defeito, menos desgaste. Você vende tranquilo porque o produto entrega." },
+                { title: "Suas Vendas Se Multiplicam", text: "Cliente satisfeito indica. Quem comprou fogão volta pro forno. Quem testou pequeno expande o pedido." },
+                { title: "Sua Reputação Cresce", text: "Você vira referência local em equipamento profissional de qualidade." },
+                { title: "Suas Margens Melhoram", text: "Produto bom justifica preço justo. Você trabalha com margens saudáveis entregando valor real." },
+                { title: "Você Tem um Parceiro", text: "Atendimento 07:00 às 18:00. Entregas no prazo. Suporte que funciona." }
+              ].map((item, idx) => (
+                <div key={idx}>
+                  <h4 className="font-bold text-lg text-primary">{item.title}</h4>
+                  <p className="text-gray-600 text-sm">{item.text}</p>
+                  {idx < 4 && <div className="w-full h-px bg-gray-200 mt-6"></div>}
+                </div>
+              ))}
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

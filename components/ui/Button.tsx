@@ -1,4 +1,10 @@
 import React from 'react';
+import { clsx, type ClassValue } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'outline' | 'whatsapp';
@@ -22,11 +28,14 @@ export const Button: React.FC<ButtonProps> = ({
     whatsapp: "bg-[#25D366] text-white hover:bg-[#128C7E] shadow-lg hover:shadow-green-500/30"
   };
 
-  const width = fullWidth ? "w-full" : "";
-
   return (
     <button 
-      className={`${baseStyles} ${variants[variant]} ${width} ${className}`}
+      className={cn(
+        baseStyles,
+        variants[variant],
+        fullWidth && "w-full",
+        className
+      )}
       {...props}
     >
       {children}
