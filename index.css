@@ -1,0 +1,23 @@
+@theme {
+  --color-primary: #01308b;
+  --color-secondary: #f97316;
+  --color-primary-dark: #002060;
+  --color-surface: #f3f4f6;
+  
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+section {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 500px;
+}
