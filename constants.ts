@@ -3,9 +3,8 @@ import { Differential, FaqItem, ProductParam } from './types';
 
 export const COMPANY_INFO = {
   name: "JCN Indústria e Comércio Ltda.",
-  cnpj: "14.713.431/0001-00",
   address: "Rua Araraquara, 710 - Vila Rodrigues, Catanduva - SP, CEP: 15801-360",
-  phone: "(17) 3522-0000",
+  phone: "17 352223666",
   whatsapp: "5517991519932",
   email: "contato@jcngourmet.com.br"
 };

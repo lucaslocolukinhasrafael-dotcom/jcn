@@ -28,7 +28,6 @@ export const Footer: React.FC = () => {
           <div>
             <h5 className="text-white font-bold text-lg mb-6">JCN Gourmet</h5>
             <p className="mb-4 text-sm">{COMPANY_INFO.name}</p>
-            <p className="text-sm mb-4">CNPJ: {COMPANY_INFO.cnpj}</p>
             <div className="flex items-start gap-3 text-sm">
                 <MapPin size={18} className="mt-1 shrink-0" />
                 <p>{COMPANY_INFO.address}</p>
